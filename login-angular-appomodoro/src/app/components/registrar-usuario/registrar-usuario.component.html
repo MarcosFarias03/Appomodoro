@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appomodoro | Crear cuenta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <main class="container flex flex--column flex--center">
+        <div class="cadastro-cabecalho">
+            <img src="https://yonodesperdicio.org/wp-content/uploads/2021/07/Toamte-1.png" alt="Logo Doguito" class="registry-header__logo">
+            <h1 class="registry-header__title">Appomodoro</h1>
+        </div>
+        <section class="cartao">
+            <h2 class="card__title">Completa tu registro</h2>
+            <form (ngSubmit)="registrar()" [formGroup]="registrarUsuario" class="formulario flex flex--column">
+                <fieldset>
+                    <div class="input-container">
+                        <input type="email" class="form-control input" formControlName="email" placeholder="name@example.com">
+                        <label class="input-label" for="email">Email</label>
+                        <span *ngIf="registrarUsuario.get('email')?.hasError('required') && registrarUsuario.get('email')?.touched" class="input-message-error">
+                            El <strong>correo</strong> es requerido
+                        </span>
+                        <span *ngIf="registrarUsuario.get('email')?.hasError('email') && registrarUsuario.get('email')?.touched" class="input-message-error">
+                            El <strong>correo</strong> es invalido
+                        </span>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" class="form-control input" formControlName="password" placeholder="Password">
+                        <label class="input-label" for="password">Contraseña</label>
+                        <span *ngIf="registrarUsuario.get('password')?.hasError('required') && registrarUsuario.get('password')?.touched" class="input-message-error">
+                            La <strong>password</strong> es requerida
+                        </span>
+                        <span *ngIf="registrarUsuario.get('password')?.hasError('minlength') && registrarUsuario.get('password')?.touched" class="input-message-error">
+                            El <strong>password</strong> debe tener 6 caracteres
+                        </span>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" class="form-control input" formControlName="repetirPassword" placeholder="Repetir Password">
+                        <label class="input-label">Repetir Passowrd</label>
+                    </div>
+                </fieldset> 
+                <div class="d-grid gap-2 mb-3">
+                    <button class="button" [disabled]="registrarUsuario.invalid" type="submit">Aceptar</button>
+                </div>           
+                <a routerLink="/login">Volver</a>
+            <app-spinner *ngIf="loading"></app-spinner>
+            </form>
+        </section>
+    </main>
+
+    <script src="./js/app.js" type="module"></script>
+</body>
+</html>
+

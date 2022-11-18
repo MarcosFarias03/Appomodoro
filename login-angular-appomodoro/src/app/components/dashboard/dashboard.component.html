@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appomodoro</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="cabecalho container">
+      <div class="header-div">
+        <img
+        src="https://yonodesperdicio.org/wp-content/uploads/2021/07/Toamte-1.png"
+        alt="Logo tomate"
+        class="cabecalho__logo"/>
+        <h1>Appomodoro</h1>
+        
+      </div>
+      <nav>
+        <ul class="header__list-nav">
+          <button type="button" class="header__link" (click)="logOut()">LogOut</button>  
+        </ul>
+      </nav>
+    </header>
+    <div>
+    </div>
+  <div id="seconds-sphere" class="seconds-sphere"></div>
+      <div id="pomodoro-app">
+        <div id="container">
+          <div id="buttons">
+            <div class="buttons-cont">
+              <button id="work">Empezar</button>
+              <button id="shortBreak">Descanzo Corto</button>
+              <button id="longBreak">Descanzo Largo</button>
+              <button id="stop">Parar</button>
+            </div>
+            
+          </div>
+          <div id="timer">
+            <div id="time">
+              <span id="minutes">25</span>
+              <span id="colon">:</span>
+              <span id="seconds">00</span>
+            </div>
+            <div id="filler"></div>
+          </div>
+          <div class="Works-List">
+            <h2>Tareas</h2>
+          </div>
+        </div>
+      </div>
+  <script src="./js/app-home.js"></script>
+  </body>
+</html>
